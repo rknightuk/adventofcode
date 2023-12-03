@@ -39,15 +39,15 @@ foreach (explode("\n", $strippedInput) as $index => $line)
             $position + strlen($number) + 1,
         ];
 
-        $findInCurrent = str_replace('.', '', substr($current, $range[0], $range[1]));
-        $findInPrevious = str_replace('.', '', substr($previous, $range[0], $range[1]));
-        $findInNext = str_replace('.', '', substr($next, $range[0], $range[1]));
-        preg_match_all('/\D/', $findInCurrent, $sc);
-        preg_match_all('/\D/', $findInPrevious, $sp);
-        preg_match_all('/\D/', $findInNext, $sn);
+        $findInCurrent = substr($current, $range[0], $range[1] - $range[0]);
+        $findInPrevious = substr($previous, $range[0], $range[1] - $range[0]);
+        $findInNext = substr($next, $range[0], $range[1] - $range[0]);
+        preg_match_all('/[^0-9\.]/', $findInCurrent, $sc);
+        preg_match_all('/[^0-9\.]/', $findInPrevious, $sp);
+        preg_match_all('/[^0-9\.]/', $findInNext, $sn);
 
         if (
-            count($sc[0]) || count($sp[0]) || count($sn[0])
+            count($sc[0]) > 0 || count($sp[0]) > 0 || count($sn[0]) > 0
         ) {
             $total += $number;
         } else {
