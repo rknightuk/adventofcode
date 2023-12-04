@@ -29,7 +29,6 @@ $multipliers = array_fill(1, count($lines), 1);
 foreach ($lines as $index => $line) {
     $cardId = $index + 1;
     $winCount = count(array_filter(array_intersect($line['have'], $line['winners'])));
-    $lines[$index]['index'] = $index;
     if ($winCount === 0) {
         continue;
     }
