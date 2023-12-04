@@ -16,7 +16,8 @@ $lines = explode("\n", $input);
 
 foreach ($lines as $line)
 {
-    [$winners, $have] = explode('|', $line);
+    [$_, $data] = explode(': ', $line);
+    [$winners, $have] = explode('|', $data);
     $winners = explode(' ', trim($winners));
     $have = explode(' ', trim($have));
 
