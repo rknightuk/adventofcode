@@ -36,7 +36,7 @@ humidity-to-location map:
 60 56 37
 56 93 4';
 
-$input = $test;
+// $input = $test;
 
 $rawData = explode("\n\n", $input);
 $seeds = explode(' ', str_replace('seeds: ', '', $rawData[0]));
@@ -49,28 +49,30 @@ foreach ($rawData as $value) {
     $mapName = str_replace(' map:', '', $lines[0]);
     unset($lines[0]);
     $mapData[$mapName] = [];
-    foreach ($lines as $line)
-    {
+    foreach ($lines as $line) {
         [$destinationStart, $sourceStart, $rangeLength] = explode(' ', $line);
-
-        $mapData[$mapName] = array_replace($mapData[$mapName], array_combine(
-            range($sourceStart, $sourceStart + $rangeLength - 1),
-            range($destinationStart, $destinationStart + $rangeLength - 1),
-        ));
+        $mapData[$mapName][] = [
+            'sourceStart' => $sourceStart,
+            'sourceEnd' => $sourceStart + $rangeLength - 1,
+            'destinationStart' => $destinationStart,
+            'destinationEnd' => $destinationStart + $rangeLength - 1,
+        ];
     }
 }
 
-var_dump(json_encode($mapData, JSON_PRETTY_PRINT));
-die;
-
 $locations = [];
 
-foreach ($seeds as $seed)
-{
+foreach ($seeds as $seed) {
     $current = $seed;
-    foreach ($mapData as $mapName => $map)
-    {
-        $current = $map[$current] ?? $current;
+    foreach ($mapData as $mapName => $mapArray) {
+        foreach ($mapArray as $map)
+        {
+            if ($current >= $map['sourceStart'] && $current <= $map['sourceEnd']) {
+                $index = $current - (int) $map['sourceStart'];
+                $current = (int) $map['destinationStart'] + $index;
+                break;
+            }
+        }
     }
     $locations[] = $current;
 }
