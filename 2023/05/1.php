@@ -60,9 +60,6 @@ foreach ($rawData as $value) {
     }
 }
 
-var_dump(json_encode($mapData, JSON_PRETTY_PRINT));
-die;
-
 $locations = [];
 
 foreach ($seeds as $seed)
