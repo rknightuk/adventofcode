@@ -6,7 +6,7 @@ Each day has it's own folder with three files:
 
 - `input.php` - the input for solving the puzzle
 - `1.php` - code for part one of the puzzle
-- `2.php` - code for part two of the puzzle
+- `2.php` - code for part two of the puzzle, if attempted
 
 Additional files like alternate versions will also be in the each folder.
 
