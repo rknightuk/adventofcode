@@ -1,4 +1,4 @@
-# Advent of Code Solutiions
+# Advent of Code Solutions
 
 ## What is Advent of Code?
 
