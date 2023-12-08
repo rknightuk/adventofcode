@@ -63,4 +63,4 @@ while (!$found) {
     $steps++;
 }
 
-echo 'It takes ' . $steps . ' steps to reach ZZZ' . PHP_EOL;
+echo 'It takes ' . $steps . ' steps to reach all nodes ending in Z' . PHP_EOL;
