@@ -22,3 +22,4 @@ Run with `php {filename}.php`
 - Day Six: _Wait For It_ [[Code](06)] [[Blog Post](https://rknight.me/advent-of-code-2023-day-six/)]
 - Day Seven: _Camel Cards_ [[Code](07)] [[Blog Post](https://rknight.me/advent-of-code-2023-day-seven/)]
 - Day Eight: _Haunted Wasteland_ [[Code](08)] [[Blog Post](https://rknight.me/advent-of-code-2023-day-eight/)]
+- Day Nine: _Mirage Maintenance_ [[Code](09)] [[Blog Post](https://rknight.me/advent-of-code-2023-day-nine/)]
